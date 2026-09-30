@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.venv/
+build/
+dist/
+aar-prompt.txt
+aar-launch.py
+aar-codex.log
+*.log
+*-prompt.txt
+*-launch.py

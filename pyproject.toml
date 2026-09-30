@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api-archaeologist"
+version = "0.1.0"
+description = "Evidence-linked reconstruction of inferred API contracts"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+aar = "aar.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
