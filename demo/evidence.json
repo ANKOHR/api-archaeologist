@@ -1,0 +1,230 @@
+{
+  "banner": "INFERRED, NOT VERIFIED. Schema is inferred from synthetic fixtures; unknowns are marked, not filled in.",
+  "records": [
+    {
+      "id": "ev-efaf5bfe926a2350",
+      "kind": "error",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "GET",
+        "path": "/orders/999",
+        "query": {}
+      },
+      "response": {
+        "body": {
+          "error": "fictional order missing"
+        },
+        "status": 404
+      },
+      "source": "errors.json#0",
+      "synthetic": true
+    },
+    {
+      "id": "ev-4ad744c73477a194",
+      "kind": "code",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {},
+        "method": "GET",
+        "path": "/orders/101",
+        "query": {}
+      },
+      "response": null,
+      "source": "examples.py#L3",
+      "synthetic": true
+    },
+    {
+      "id": "ev-7b297c1511b022ea",
+      "kind": "code",
+      "request": {
+        "body": {
+          "quantity": 1,
+          "sku": "FICTIONAL-B"
+        },
+        "body_known": true,
+        "headers": {},
+        "method": "POST",
+        "path": "/orders",
+        "query": {}
+      },
+      "response": null,
+      "source": "examples.py#L4",
+      "synthetic": true
+    },
+    {
+      "id": "ev-62536776afb6e0f1",
+      "kind": "traffic",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "GET",
+        "path": "/orders/101",
+        "query": {}
+      },
+      "response": {
+        "body": {
+          "id": 101,
+          "note": "gift",
+          "total": 12
+        },
+        "status": 200
+      },
+      "source": "traffic.json#0",
+      "synthetic": true
+    },
+    {
+      "id": "ev-cd3277efe255bfa4",
+      "kind": "traffic",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "GET",
+        "path": "/orders/202",
+        "query": {}
+      },
+      "response": {
+        "body": {
+          "id": 202,
+          "total": 24
+        },
+        "status": 200
+      },
+      "source": "traffic.json#1",
+      "synthetic": true
+    },
+    {
+      "id": "ev-2c4ebea7f0e6687c",
+      "kind": "traffic",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "GET",
+        "path": "/orders",
+        "query": {
+          "include_archived": "true"
+        }
+      },
+      "response": {
+        "body": {
+          "orders": [
+            {
+              "id": 101
+            }
+          ]
+        },
+        "status": 200
+      },
+      "source": "traffic.json#2",
+      "synthetic": true
+    },
+    {
+      "id": "ev-7ad876f478cf8e8d",
+      "kind": "traffic",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "GET",
+        "path": "/orders",
+        "query": {}
+      },
+      "response": {
+        "body": {
+          "orders": [
+            {
+              "id": 202
+            }
+          ]
+        },
+        "status": 200
+      },
+      "source": "traffic.json#3",
+      "synthetic": true
+    },
+    {
+      "id": "ev-def27801e0719916",
+      "kind": "traffic",
+      "request": {
+        "body": {
+          "quantity": 2,
+          "sku": "FICTIONAL-A"
+        },
+        "body_known": true,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "POST",
+        "path": "/orders",
+        "query": {}
+      },
+      "response": {
+        "body": {
+          "id": 303
+        },
+        "status": 201
+      },
+      "source": "traffic.json#4",
+      "synthetic": true
+    },
+    {
+      "id": "ev-f54bfa7fa8030ae2",
+      "kind": "traffic",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "GET",
+        "path": "/inventory",
+        "query": {}
+      },
+      "response": {
+        "body": {
+          "available": true
+        },
+        "status": 200
+      },
+      "source": "traffic.json#5",
+      "synthetic": true
+    },
+    {
+      "id": "ev-8495457c264eaa6b",
+      "kind": "traffic",
+      "request": {
+        "body": null,
+        "body_known": false,
+        "headers": {
+          "authorization": "Bearer fictional-token"
+        },
+        "method": "GET",
+        "path": "/inventory",
+        "query": {}
+      },
+      "response": {
+        "body": {
+          "available": "unknown"
+        },
+        "status": 200
+      },
+      "source": "traffic.json#6",
+      "synthetic": true
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+[
+  {
+    "request": {
+      "headers": {
+        "Authorization": "Bearer fictional-token"
+      },
+      "method": "GET",
+      "path": "/orders/101"
+    },
+    "response": {
+      "body": {
+        "id": 101,
+        "note": "gift",
+        "total": 12
+      },
+      "status": 200
+    },
+    "synthetic": true
+  },
+  {
+    "request": {
+      "headers": {
+        "Authorization": "Bearer fictional-token"
+      },
+      "method": "GET",
+      "path": "/orders/202"
+    },
+    "response": {
+      "body": {
+        "id": 202,
+        "total": 24
+      },
+      "status": 200
+    },
+    "synthetic": true
+  },
+  {
+    "request": {
+      "headers": {
+        "Authorization": "Bearer fictional-token"
+      },
+      "method": "GET",
+      "path": "/orders?include_archived=true"
+    },
+    "response": {
+      "body": {
+        "orders": [
+          {
+            "id": 101
+          }
+        ]
+      },
+      "status": 200
+    },
+    "synthetic": true
+  },
+  {
+    "request": {
+      "headers": {
+        "Authorization": "Bearer fictional-token"
+      },
+      "method": "GET",
+      "path": "/orders"
+    },
+    "response": {
+      "body": {
+        "orders": [
+          {
+            "id": 202
+          }
+        ]
+      },
+      "status": 200
+    },
+    "synthetic": true
+  },
+  {
+    "request": {
+      "body": {
+        "quantity": 2,
+        "sku": "FICTIONAL-A"
+      },
+      "headers": {
+        "Authorization": "Bearer fictional-token"
+      },
+      "method": "POST",
+      "path": "/orders"
+    },
+    "response": {
+      "body": {
+        "id": 303
+      },
+      "status": 201
+    },
+    "synthetic": true
+  },
+  {
+    "request": {
+      "headers": {
+        "Authorization": "Bearer fictional-token"
+      },
+      "method": "GET",
+      "path": "/inventory"
+    },
+    "response": {
+      "body": {
+        "available": true
+      },
+      "status": 200
+    },
+    "synthetic": true
+  },
+  {
+    "request": {
+      "headers": {
+        "Authorization": "Bearer fictional-token"
+      },
+      "method": "GET",
+      "path": "/inventory"
+    },
+    "response": {
+      "body": {
+        "available": "unknown"
+      },
+      "status": 200
+    },
+    "synthetic": true
+  }
+]

@@ -185,6 +185,7 @@ def infer(evidence):
             types = sorted({value_type(r['request']['query'][key], True) for r in found})
             endpoint['query_parameters'][key] = claim(types, [r['id'] for r in found])
             endpoint['query_parameters'][key]['required'] = claim('unknown', ids, 'unknown: observations cannot establish query necessity')
+            unknowns.append({'endpoint': f'{method} {path}', 'location': f'query.{key}.required', 'reason': 'observations cannot establish query necessity', 'evidence_ids': sorted(ids)})
             if len(types) > 1:
                 conflicts.append({'endpoint': f'{method} {path}', 'location': f'query.{key}', 'variants': types, 'evidence_ids': sorted(r['id'] for r in found)})
         def contract(location, observations):
@@ -198,6 +199,8 @@ def infer(evidence):
             return claim({'state': 'conflicting', 'variants': variants}, [i for _, i in observations], 'conflicting: no merged contract')
         endpoint['request_shape'] = contract('request', [(r['request']['body'], r['id']) for r in rows if r['request']['body_known']])
         statuses = sorted({r['response']['status'] for r in rows if r['response']})
+        if not statuses:
+            unknowns.append({'endpoint': f'{method} {path}', 'location': 'responses', 'reason': 'no response or status observed', 'evidence_ids': sorted(ids)})
         for status in statuses:
             selected = [r for r in rows if r['response'] and r['response']['status'] == status]
             endpoint['responses'][str(status)] = {'status': claim(status, [r['id'] for r in selected]),

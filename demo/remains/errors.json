@@ -1,0 +1,16 @@
+{
+  "request": {
+    "headers": {
+      "Authorization": "Bearer fictional-token"
+    },
+    "method": "GET",
+    "path": "/orders/999"
+  },
+  "response": {
+    "body": {
+      "error": "fictional order missing"
+    },
+    "status": 404
+  },
+  "synthetic": true
+}

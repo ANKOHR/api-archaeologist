@@ -11,6 +11,7 @@ def names(schema):
 
 def markdown(schema):
     lines = ['# API Archaeologist inferred reference', '', BANNER, '',
+             f"All input records explicitly labelled synthetic: {schema['synthetic']}. The synthetic-fixture banner describes the bundled demonstration; other input provenance is unverified.", '',
              '## Endpoint catalogue', '', 'All entries are inferred observations, never confirmed contracts.', '']
     for name, endpoint in names(schema):
         lines += [f"### {endpoint['method']['value']} {endpoint['path']['value']}", '',
@@ -75,7 +76,9 @@ def generated_tests(schema):
             kwargs = {'query': request['query'], 'headers': request['headers'], 'body': request['body']}
             for index, segment in enumerate(endpoint['path']['value'].strip('/').split('/')):
                 if segment.startswith('{'):
-                    kwargs[segment[1:-1]] = request['path'].strip('/').split('/')[index]
+                    parameter = segment[1:-1]
+                    value = request['path'].strip('/').split('/')[index]
+                    kwargs[parameter] = int(value) if endpoint['path_parameters'][parameter]['value'] == ['integer'] else value
             cases.append({'function': name, 'kwargs': kwargs, 'expected': {k: request[k] for k in ['method', 'path', 'query', 'headers', 'body']}})
     return '\n'.join(['"""' + BANNER + '\nReplay checks only, not verification against a real API.\n"""',
                       'import importlib.util', 'import json', 'from pathlib import Path', 'import pytest',
