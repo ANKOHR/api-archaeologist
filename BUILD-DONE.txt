@@ -1,0 +1,6 @@
+Pytest test count: 42 passed (33 project tests plus 9 generated replay tests).
+Validation command: python -m pytest tests demo/replay -q
+Local build commit hash: cf96b1bfaed80fc3bb19bef03c07ed4f4f81bf9b
+The hash identifies the tested implementation commit immediately before this completion-marker commit.
+
+Built API Archaeologist as a deterministic, CPU-only Python CLI with evidence ingestion, conservative path and JSON shape inference, evidence-linked confidence notes, explicit conflicts and unknowns, markdown documentation, typed Python request builders, generated fixture replay and schema consistency tests, synthetic acme-orders fixtures, and markdown/JSON reports. The complete synthetic end-to-end artifacts are checked into demo, the README documents the architecture and inference rules, and all reports and clients state that inference is not real API verification. All 42 tests passed, no em dash characters were found in tracked source or artifacts, and nothing was published.
